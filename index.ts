@@ -71,9 +71,9 @@ app.post("/vehicle/add", (req: Request, res: Response) => {
 app.get("/vehicle/search/:model", (req: Request, res: Response) => {
     for (let i: number = 0; i < saved.length; i++) {
         if (saved[i].model === req.params.model) {
-            let result = {"model": saved[i].model, "color": saved[i].color, "year": saved[i].year, "power": saved[i].power}
-            console.log(result)
-            res.send(JSON.stringify(result));   
+            // let result = {"model": saved[i].model, "color": saved[i].color, "year": saved[i].year, "power": saved[i].power}
+            // console.log(result)
+            res.send(JSON.stringify(saved[i]));   
         }
     }
     res.status(404)
