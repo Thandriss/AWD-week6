@@ -71,7 +71,7 @@ app.post("/vehicle/add", (req: Request, res: Response) => {
 app.get("/vehicle/search/:model", (req: Request, res: Response) => {
     try {
         let result = saved.find((el) => el.model == req.params.model)
-        if (result && result.constructor.name == "Vehicle") {
+        if (result) {
             let retRes = {
                 model: result.model,
                 color: result.color,
