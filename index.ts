@@ -72,14 +72,8 @@ app.get("/vehicle/search/:model", (req: Request, res: Response) => {
     try {
         let result = saved.find((el) => el.model == req.params.model)
         if (result) {
-            let retRes = {
-                model: result.model,
-                color: result.color,
-                year: result.year,
-                power: result.power
-            }
             console.log(result);
-            res.send(retRes);
+            res.send(result);
         }
         res.status(404)
     }
