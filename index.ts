@@ -79,7 +79,7 @@ app.get("/vehicle/search/:model", (req: Request, res: Response) => {
                 power: result.power
             }
             console.log(result);
-            res.send(retRes);
+            res.send(result);
         }
         res.status(404)
     }
