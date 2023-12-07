@@ -69,15 +69,13 @@ app.post("/vehicle/add", (req: Request, res: Response) => {
 })
 
 app.get("/vehicle/search/:model", (req: Request, res: Response) => {
-    let result: Array<Vehicle> = [];
-    for (let i: number = 0; i < saved.length; i++) {
-        if (saved[i].model === req.params.model) {
-            result.push(saved[i]);
-            // console.log(result)  
-        }
+    try {
+        let result = saved.find((el) => el.model == req.params.model)
+        res.send(JSON.stringify(result)); 
     }
-    res.send(JSON.stringify(result)); 
-    res.status(404)
+    catch {
+        res.status(404)
+    }
 })
 
 app.listen(port, () => {
