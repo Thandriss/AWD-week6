@@ -71,7 +71,17 @@ app.post("/vehicle/add", (req: Request, res: Response) => {
 app.get("/vehicle/search/:model", (req: Request, res: Response) => {
     try {
         let result = saved.find((el) => el.model == req.params.model)
-        res.send(JSON.stringify(result)); 
+        if (result) {
+            let retRes = {
+                model: result.model,
+                color: result.color,
+                year: result.year,
+                power: result.power
+            }
+            console.log(result);
+            res.send(retRes);
+        }
+        res.status(404)
     }
     catch {
         res.status(404)
